@@ -18,3 +18,4 @@ buttons.forEach((button, i) => {
         });
     });
 });
+

@@ -40,18 +40,30 @@ const initialState = [
 
 const reducer = (state = initialState, action) => {
     // Handle actions here - make sure you don't mutate the state!
-    const { type } = action;
+    const { type, method } = action;
 
-    const reducer = (state = initialState, action) => {
+    // const reducer = (state = initialState, action) => {
         // Handle actions here - make sure you don't mutate the state!
-        const { type, method } = action;
+        // const { type, method } = action;
+
 
         if (type == 'SORT') {
+            // console.log(method)
             return [...state].sort((a, b) => b[method] - a[method]);
         }
 
+        if (type == 'DELETE') {
+            console.log(action.id)
+            const newState = [...state].filter(function(tweet, index){
+                // console.log(tweet)
+                return index !== action.id
+            })
+            console.log(state, newState)
+            return newState;
+        }
+
         return state;
-    }
+    // }
     
-    return state;
+    // return state;
 }
